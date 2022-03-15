@@ -9,6 +9,8 @@ var movieScore = document.getElementById("moviescore");
      //variable for API Key
 var apiKey = "6a29d29b99eb578408eebe9fd0b98eb6"
 
+var movieId = "";
+
 // function to pull data from API
 function submitPull (input) {
     var url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&language=en-US&query=" + input + "&page=1&include_adult=false";
@@ -25,6 +27,9 @@ function submitPull (input) {
         movieDesc.textContent = currentMovie.overview;
         releaseDate.textContent = currentMovie.release_date;
         movieScore.textContent = "Average User Rating: " + currentMovie.vote_average;
+        movieId = currentMovie.id;
+
+        console.log(movieId);
         });
 }
 
