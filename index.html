@@ -4,17 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css"></style>
     <title>Data Mammoth</title>
 </head>
+
+<nav class="nav-wrapper">
+    <div>
+        <a href="#" class="brand-logo left">Data Mammoth</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Favorites</a></li>
+        </ul>
+    </div>
+</nav>
+
 <body>
-    <header>
-        <h1>Data Mammoth</h1>
-    </header>
+    <div class="container-fluid" id="search-bar">
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Search movies by title..." id="searchfield" type="text">
+                </div>
+              </div>
+              <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
+            </form>
+          </div>
+                
+    </div>
+
+    <div class="container-fluid" id="search-result">
+        <img id="movieposter"></img>
+        <h3 id="movietitle"></h3>
+        <p id="moviedesc"></p>
+        <p id ="releasedate"></p>
+        <p id="moviescore"></p>
+    </div>
 </body>
 
 <footer>
-    <p>Powered by TMDB</p>
+    <p>Powered by:</p>
     <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
 </footer>
 
