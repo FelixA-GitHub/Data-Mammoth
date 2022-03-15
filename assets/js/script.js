@@ -6,7 +6,7 @@ var movieDesc = document.getElementById("moviedesc");
 var releaseDate = document.getElementById("releasedate");
 var movieScore = document.getElementById("moviescore");
 
-     //variable for API Key
+//variable for API Key
 var apiKey = "6a29d29b99eb578408eebe9fd0b98eb6"
 
 var movieId = "";
