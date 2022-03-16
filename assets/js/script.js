@@ -6,6 +6,8 @@ var movieDesc = document.getElementById("moviedesc");
 var releaseDate = document.getElementById("releasedate");
 var movieScore = document.getElementById("moviescore");
 var movieRating = document.getElementById("movierating");
+// variable for movie trailer
+var movieTrailer = document.getElementById("movietrailer");
 
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
@@ -31,7 +33,6 @@ function submitPull (input) {
         releaseDate.textContent = currentMovie.release_date;
         movieScore.textContent = "Average User Rating: " + currentMovie.vote_average;
         movieId = currentMovie.id;
-
         console.log(movieId);
         });
 }
@@ -45,11 +46,28 @@ function ratingPull (input) {
         return response.json();
     })
     .then(function (data) {
-    var currentRating = data.results[0];
-    console.log(currentRating);
-    movieRating.textContent = currentRating.contentRating;
+    var mpaaRating = data.results[0];
+    console.log(mpaaRating);
+    movieRating.textContent = "Rated " + mpaaRating.contentRating;
     });
 }
+
+// function to pull movie trailer from API (not quite right. needs to use 
+// movie id from input in order to pull trailer)
+
+// function trailerPull (input) {
+//     var url3 = "https://imdb-api.com/en/API/Trailer/" + apiKey2 + "/" + input;
+
+//     fetch(url3)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//     var trailer = data.results[0];
+//     console.log(trailer);
+//     movieTrailer.setAttribute("src", trailer.linkEmbed);
+//     });
+// }
 
 // function to handle starting a search
 function submitSearchQuery (event) {
@@ -58,6 +76,7 @@ function submitSearchQuery (event) {
     var search = searchField.value.trim();
 
     if (search) {
+        submitPull(search);
         ratingPull(search);
     } else {
         alert("Please enter a title.");
