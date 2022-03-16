@@ -11,7 +11,7 @@ footer img {
 }
 
 .poster-image {
-    width: 30%;
+    width: 25%;
 }
 
 #search-result {
@@ -19,5 +19,9 @@ footer img {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: top;
-    height: 80vh;
+    /* height: 80vh; */
+}
+
+.footer-copyright img {
+    width: 15%;
 }

@@ -25,6 +25,7 @@ function submitPull (input) {
             searchField.value = "";
 
             for (var i = 0; i < 3; i++) {
+
                 var card = document.createElement("div")
                 var imageBox = document.createElement("div");
                 var image = document.createElement("img");
@@ -36,7 +37,7 @@ function submitPull (input) {
                 var spanImage = document.createElement("i");
                 var spanText = document.createElement("p");
 
-                card.setAttribute("class", "card poster-image");
+                card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
                 image.setAttribute("class", "activator");
                 image.setAttribute("src", `${imageLink}${movies[i].poster_path}`);
@@ -47,19 +48,19 @@ function submitPull (input) {
                 spanTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 spanImage.setAttribute("class", "material-icons right");
 
-                resultsEl.appendChild(card);
+                
                 card.appendChild(imageBox);
                 imageBox.appendChild(image);
                 card.appendChild(cardContent);
                 cardContent.appendChild(cardTitle);
-                cardContent.appendChild(link);
+                // cardContent.appendChild(link);
                 card.appendChild(cardReveal);
                 cardReveal.appendChild(spanTitle);
                 spanTitle.appendChild(spanImage)
-                cardReveal.appendChild(spanText);
+                // cardReveal.appendChild(spanText);
+                resultsEl.appendChild(card);
                 
                 cardTitle.textContent = movies[i].title;
-                spanTitle.textContent = "test";
 
 
 
