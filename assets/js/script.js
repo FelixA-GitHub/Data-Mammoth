@@ -8,7 +8,7 @@ var movieRating = document.getElementById("movierating");
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
 var apiKey2 = "k_b81pzrt6";
-=======
+
 var resultsEl = document.getElementById("search-result")
 
 
