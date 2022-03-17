@@ -9,48 +9,60 @@
     <title>Data Mammoth</title>
 </head>
 
-<nav class="nav-wrapper">
+<nav class="nav-wrapper blue darken-3">
     <div>
         <a href="#" class="brand-logo left">Data Mammoth</a>
         <ul id="nav-mobile" class="right">
             <li><a href="#">Search</a></li>
-            <li><a href="#">Favorites</a></li>
+            <li><a href="./favorites.html">Favorites</a></li>
         </ul>
     </div>
 </nav>
 
 <body>
-    <div class="container-fluid" id="search-bar">
-        <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Search movies by title..." id="searchfield" type="text">
+    <div class="container" id="search-bar">
+        <div class="row" id="searchstyle">
+            <form class="col s8">
+              <div>
+                <div class="input-field">
+                    <input placeholder="Search movies by title..." id="searchfield" autocomplete="off" type="text">
                 </div>
               </div>
-              <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
             </form>
+            <button class="col s4 waves-effect waves-light btn blue darken-2" id="searchbtn">Search</button>
           </div>
                 
     </div>
 
-    <div class="container-fluid" id="search-result">
-        <p>test</p>
-        <img id="movieposter"></img>
-        <h3 id="movietitle"></h3>
-        <p id="moviedesc"></p>
-        <p id ="releasedate"></p>
-        <p id="moviescore"></p>
-        <p id="movierating"></p>
-        <!-- <iframe for movie trailer> -->
-        <iframe id="movietrailer" width="560" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+
+    <!-- Container for search results -->
+    <div class="container row" id="search-result"></div>
+    <iframe id="movietrailer" width="560" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p id="movierating"></p>
+
 </body>
 
-<footer>
-    <p>Powered by:</p>
-    <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
-</footer>
+<div class="divider"></div>
+
+<footer class="page-footer blue darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Data Mammoth</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Powered by
+        <a class="grey-text text-lighten-4 right" href="https://github.com/FelixA-GitHub/Data-Mammoth">GitHub</a>
+        <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg"/>
+      </div>
+    </div>
+  </footer>
+
+  
 
 <script src="./assets/js/script.js"></script>
 </html>
