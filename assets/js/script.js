@@ -1,10 +1,6 @@
 var searchBtn = document.getElementById("searchbtn");
 var searchField = document.getElementById("searchfield");
-var moviePoster = document.getElementById("movieposter");
-var movieTitle = document.getElementById("movietitle");
-var movieDesc = document.getElementById("moviedesc");
-var releaseDate = document.getElementById("releasedate");
-var movieScore = document.getElementById("moviescore");
+var resultsEl = document.getElementById("search-result")
 
 //variable for API Key
 var apiKey = "6a29d29b99eb578408eebe9fd0b98eb6"
@@ -20,16 +16,59 @@ function submitPull (input) {
            return response.json();
         })
         .then(function (data) {
-        var currentMovie = data.results[0];
-        console.log(currentMovie);
-        moviePoster.setAttribute("src", "http://image.tmdb.org/t/p/w185" + currentMovie.poster_path);
-        movieTitle.textContent = currentMovie.title;
-        movieDesc.textContent = currentMovie.overview;
-        releaseDate.textContent = currentMovie.release_date;
-        movieScore.textContent = "Average User Rating: " + currentMovie.vote_average;
-        movieId = currentMovie.id;
+            var movies = data.results;
+            console.log(movies);
 
-        console.log(movieId);
+            var imageLink = "https://image.tmdb.org/t/p/w154";
+
+            resultsEl.innerHTML = "";
+            searchField.value = "";
+
+            for (var i = 0; i < 3; i++) {
+
+                var card = document.createElement("div")
+                var imageBox = document.createElement("div");
+                var image = document.createElement("img");
+                var cardContent = document.createElement("div");
+                var cardTitle = document.createElement("span");
+                var link = document.createElement("a");
+                var cardReveal = document.createElement("div");
+                var spanTitle = document.createElement("span");
+                var spanImage = document.createElement("i");
+                var spanText = document.createElement("p");
+
+                card.setAttribute("class", "card poster-image large");
+                imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
+                image.setAttribute("class", "activator");
+                image.setAttribute("src", `${imageLink}${movies[i].poster_path}`);
+                cardContent.setAttribute("class", "card-content");
+                cardTitle.setAttribute("class", "card-title activator grey-text text-darken-4");
+                link.setAttribute("href", "");
+                cardReveal.setAttribute("class", "card-reveal");
+                spanTitle.setAttribute("class", "card-title grey-text text-darken-4");
+                spanImage.setAttribute("class", "material-icons right");
+
+                
+                card.appendChild(imageBox);
+                imageBox.appendChild(image);
+                card.appendChild(cardContent);
+                cardContent.appendChild(cardTitle);
+                // cardContent.appendChild(link);
+                card.appendChild(cardReveal);
+                cardReveal.appendChild(spanTitle);
+                spanTitle.appendChild(spanImage)
+                // cardReveal.appendChild(spanText);
+                resultsEl.appendChild(card);
+                
+                cardTitle.textContent = movies[i].title;
+
+
+
+
+
+                
+            }
+            
         });
 }
 
