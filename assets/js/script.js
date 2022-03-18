@@ -11,13 +11,17 @@ var apiKey2 = "k_b81pzrt6";
 
 var resultsEl = document.getElementById("search-result")
 
-
+//variables for saving search items
+var displayMovie;
+var searchTerms = [];
+var searchHistory = [];
 
 var movieId = "";
 
 // function to pull data from API
 function submitPull (input) {
     var url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey1 + "&language=en-US&query=" + input + "&page=1&include_adult=false";
+    var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
 
     fetch(url)
         .then(function (response) {
@@ -72,21 +76,16 @@ function submitPull (input) {
 
             }
         });
-}
-
-// function to pull movie rating from API
-function ratingPull (input) {
-    var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
-
+        
     fetch(url2)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-    var mpaaRating = data.results[0];
-    console.log(mpaaRating);
-    movieRating.textContent = "Rated " + mpaaRating.contentRating;
-    });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        var mpaaRating = data.results[0];
+        console.log(mpaaRating);
+        movieRating.textContent = "Rated " + mpaaRating.contentRating;
+        });
 }
 
 // function to pull movie trailer from API (not quite right. needs to use 
@@ -114,7 +113,6 @@ function submitSearchQuery (event) {
 
     if (search) {
         submitPull(search);
-        ratingPull(search);
     } else {
         alert("Please enter a title.");
     }
@@ -123,3 +121,9 @@ function submitSearchQuery (event) {
 
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
+
+
+var saveMovie = function(save) {
+
+}
+
