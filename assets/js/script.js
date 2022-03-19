@@ -14,10 +14,10 @@ var modal1Text = document.getElementById("modal1text");
 var modal2Content = document.getElementById("modal2content");
 var modal2Title = document.getElementById("modal2title");
 var modal2Text = document.getElementById("modal2text");
-var movieRating = document.getElementById("movierating");
 
 // variable for movie trailer
 var movieTrailer = document.getElementById("movietrailer");
+var movieRating = document.getElementById("movierating");
 
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
@@ -142,15 +142,12 @@ function submitSearchQuery (event) {
 
     if (search) {
         submitPull(search);
-        localStorage.setItem('search', search);} 
-    else {
+        localStorage.setItem('search', search);
+    } else {
         alert("Please enter a title.");
     }
 
-}
 
-//function to retrieve stored movie
-function storedMovie () {
     var retrieveMovie = JSON.parse(localStorage.getItem('search'));
     console.log(retrieveMovie);
 }
