@@ -29,7 +29,6 @@ var resultsEl = document.getElementById("search-result")
 var displayMovie;
 var searchTerms = [];
 var searchHistory = [];
-var currentMovies = [];
 
 var movieId = "";
 
@@ -78,7 +77,9 @@ function submitPull (input) {
                 infoButton.setAttribute("class", "btn blue modal-trigger modal-btn")
                 infoButton.setAttribute("href", `#modal${i}`);
                 favButton.setAttribute("class", "btn waves-effect waves-green btn-flat");
+                //set ID of button to the movie ID
                 favButton.setAttribute("id", `${movies[i].id}`);
+                //on click, get the ID of the button clicked and pass it to the add to favorites function
                 favButton.onclick = function() {
                     var id = getId(this);
                     addToFavorites(id);
@@ -97,7 +98,6 @@ function submitPull (input) {
                 infoButton.textContent = "More Info"
                 favButton.textContent = "Favorite"
                 cardTitle.textContent = movies[i].title;
-                currentMovies.push(movies[i]);
 
 
 
@@ -156,6 +156,7 @@ function addToFavorites (id) {
     alert(`Added ${id} to favorites!`);
 }
 
+// function to return ID of button clicked
 function getId(btn) {
     return btn.id;
 }
