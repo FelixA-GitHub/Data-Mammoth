@@ -49,10 +49,10 @@ function submitPull (input) {
 
                 card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
-                image.setAttribute("class", "activator");
+                // image.setAttribute("class", "activator");
                 image.setAttribute("src", `${imageLink}${movies[i].poster_path}`);
                 cardContent.setAttribute("class", "card-content");
-                cardTitle.setAttribute("class", "card-title activator grey-text text-darken-4");
+                cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 link.setAttribute("href", "");
                 cardReveal.setAttribute("class", "card-reveal");
                 spanTitle.setAttribute("class", "card-title grey-text text-darken-4");
