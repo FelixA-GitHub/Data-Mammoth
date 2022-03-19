@@ -5,6 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var searchBtn = document.getElementById("searchbtn");
 var searchField = document.getElementById("searchfield");
+var modal0Content = document.getElementById("modal0content");
+var modal0Title = document.getElementById("modal0title");
+var modal0Text = document.getElementById("modal0text");
+var modal1Content = document.getElementById("modal1content");
+var modal1Title = document.getElementById("modal1title");
+var modal1Text = document.getElementById("modal1text");
+var modal2Content = document.getElementById("modal2content");
+var modal2Title = document.getElementById("modal2title");
+var modal2Text = document.getElementById("modal2text");
 
 // variable for movie trailer
 var movieTrailer = document.getElementById("movietrailer");
@@ -39,9 +48,18 @@ function submitPull (input) {
             resultsEl.innerHTML = "";
             searchField.value = "";
 
+            modal0Title.textContent = movies[0].title;
+            modal0Text.textContent = movies[0].overview;
+
+            modal1Title.textContent = movies[1].title;
+            modal1Text.textContent = movies[1].overview;
+
+            modal2Title.textContent = movies[2].title;
+            modal2Text.textContent = movies[2].overview;
+
             for (var i = 0; i < 3; i++) {
 
-                
+                //create and populate cards with movie poster and title
                 var card = document.createElement("div")
                 var imageBox = document.createElement("div");
                 var image = document.createElement("img");
@@ -72,7 +90,8 @@ function submitPull (input) {
                 cardTitle.textContent = movies[i].title;
                 currentMovies.push(movies[i]);
 
-                infoButton.setAttribute("id", `${movies[i].id}`);
+                
+
 
 
             }
