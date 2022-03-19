@@ -24,9 +24,7 @@ function submitPull (input) {
     var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
 
     fetch(url)
-        .then(function (response) {
-           return response.json();
-        })
+        .then(response => response.json())
         .then(function (data) {
             var movies = data.results;
             console.log(movies);
@@ -108,22 +106,21 @@ function submitPull (input) {
 // function to handle starting a search
 function submitSearchQuery (event) {
     event.preventDefault();
-
-    var search = searchField.value.trim();
+    
+    var search = JSON.stringify(searchField.value.trim());
 
     if (search) {
         submitPull(search);
+        localStorage.setItem('search', search);
     } else {
         alert("Please enter a title.");
     }
 
-}
 
+    var retrieveMovie = JSON.parse(localStorage.getItem('search'));
+    console.log(retrieveMovie);
+}
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
 
-
-var saveMovie = function(save) {
-
-}
 
