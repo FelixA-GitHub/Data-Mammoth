@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Modal.init(elems);
   });
 
-var searchBtn = document.getElementById("searchbtn");
-var searchField = document.getElementById("searchfield");
+var movieRating = document.getElementById("movie-rating");
+var searchBtn = document.getElementById("search-btn");
+var searchField = document.getElementById("search-field");
 var modal0Content = document.getElementById("modal0content");
 var modal0Title = document.getElementById("modal0title");
 var modal0Text = document.getElementById("modal0text");
@@ -16,8 +17,7 @@ var modal2Title = document.getElementById("modal2title");
 var modal2Text = document.getElementById("modal2text");
 
 // variable for movie trailer
-var movieTrailer = document.getElementById("movietrailer");
-var movieRating = document.getElementById("movierating");
+var movieTrailer = document.getElementById("movie-trailer");
 
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
@@ -63,6 +63,7 @@ function submitPull (input) {
                 var imageBox = document.createElement("div");
                 var image = document.createElement("img");
                 var cardContent = document.createElement("div");
+                var cardAction = document.createElement("div");
                 var cardText = document.createElement("p");
                 var cardTitle = document.createElement("span");
                 var infoButton = document.createElement("a");
@@ -72,6 +73,7 @@ function submitPull (input) {
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
                 image.setAttribute("src", `${imageLink}${movies[i].poster_path}`);
                 cardContent.setAttribute("class", "card-content");
+                cardAction.setAttribute("class", "card-action");
                 cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 cardText.setAttribute("class", "movie-desc");
                 infoButton.setAttribute("class", "btn blue modal-trigger modal-btn")
@@ -89,10 +91,11 @@ function submitPull (input) {
                 card.appendChild(imageBox);
                 imageBox.appendChild(image);
                 card.appendChild(cardContent);
+                card.appendChild(cardAction);
                 cardContent.appendChild(cardTitle);
                 cardContent.appendChild(cardText);
-                cardContent.appendChild(infoButton);
-                cardContent.appendChild(favButton);
+                cardAction.appendChild(infoButton);
+                cardAction.appendChild(favButton);
                 resultsEl.appendChild(card);
                 
                 infoButton.textContent = "More Info"
@@ -147,7 +150,7 @@ function submitSearchQuery (event) {
         alert("Please enter a title.");
     }
 
-
+    //variable to get parsed movie from localStorage
     var retrieveMovie = JSON.parse(localStorage.getItem('search'));
     console.log(retrieveMovie);
 }
