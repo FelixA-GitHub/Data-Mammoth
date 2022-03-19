@@ -40,12 +40,13 @@ function submitPull (input) {
                 var imageBox = document.createElement("div");
                 var image = document.createElement("img");
                 var cardContent = document.createElement("div");
+                var cardText = document.createElement("p");
                 var cardTitle = document.createElement("span");
-                var link = document.createElement("a");
+                // var link = document.createElement("a");
                 var cardReveal = document.createElement("div");
-                var spanTitle = document.createElement("span");
-                var spanImage = document.createElement("i");
-                var spanText = document.createElement("p");
+                // var spanTitle = document.createElement("span");
+                // var spanImage = document.createElement("i");
+                // var spanText = document.createElement("p");
 
                 card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
@@ -53,24 +54,26 @@ function submitPull (input) {
                 image.setAttribute("src", `${imageLink}${movies[i].poster_path}`);
                 cardContent.setAttribute("class", "card-content");
                 cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
-                link.setAttribute("href", "");
+                // link.setAttribute("href", "");
                 cardReveal.setAttribute("class", "card-reveal");
-                spanTitle.setAttribute("class", "card-title grey-text text-darken-4");
-                spanImage.setAttribute("class", "material-icons right");
+                // spanTitle.setAttribute("class", "card-title grey-text text-darken-4");
+                // spanImage.setAttribute("class", "material-icons right");
 
                 
                 card.appendChild(imageBox);
                 imageBox.appendChild(image);
                 card.appendChild(cardContent);
                 cardContent.appendChild(cardTitle);
+                cardContent.appendChild(cardText);
                 // cardContent.appendChild(link);
                 card.appendChild(cardReveal);
-                cardReveal.appendChild(spanTitle);
-                spanTitle.appendChild(spanImage)
+                // cardReveal.appendChild(spanTitle);
+                // spanTitle.appendChild(spanImage)
                 // cardReveal.appendChild(spanText);
                 resultsEl.appendChild(card);
                 
                 cardTitle.textContent = movies[i].title;
+                cardText.textContent = "test";
 
             }
         });
