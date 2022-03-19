@@ -146,8 +146,7 @@ function submitSearchQuery (event) {
     else {
         alert("Please enter a title.");
     }
-    var retrieveMovie = JSON.parse(localStorage.getItem('search'));
-    console.log(retrieveMovie);
+
 }
 
 //function to retrieve stored movie
