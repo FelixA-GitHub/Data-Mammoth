@@ -25,3 +25,7 @@ footer img {
 .footer-copyright img {
     width: 15%;
 }
+
+.card-action {
+    border: none !important;
+}
