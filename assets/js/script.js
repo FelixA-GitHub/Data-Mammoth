@@ -67,6 +67,7 @@ function submitPull (input) {
                 var cardText = document.createElement("p");
                 var cardTitle = document.createElement("span");
                 var infoButton = document.createElement("a");
+                var favButton = document.createElement("button");
 
                 card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
@@ -76,6 +77,12 @@ function submitPull (input) {
                 cardText.setAttribute("class", "movie-desc");
                 infoButton.setAttribute("class", "btn blue modal-trigger modal-btn")
                 infoButton.setAttribute("href", `#modal${i}`);
+                favButton.setAttribute("class", "btn waves-effect waves-green btn-flat");
+                favButton.setAttribute("id", `${movies[i].id}`);
+                favButton.onclick = function() {
+                    var id = getId(this);
+                    addToFavorites(id);
+                }
 
                 
                 card.appendChild(imageBox);
@@ -84,13 +91,14 @@ function submitPull (input) {
                 cardContent.appendChild(cardTitle);
                 cardContent.appendChild(cardText);
                 cardContent.appendChild(infoButton);
+                cardContent.appendChild(favButton);
                 resultsEl.appendChild(card);
                 
                 infoButton.textContent = "More Info"
+                favButton.textContent = "Favorite"
                 cardTitle.textContent = movies[i].title;
                 currentMovies.push(movies[i]);
 
-                
 
 
 
@@ -143,6 +151,15 @@ function submitSearchQuery (event) {
     var retrieveMovie = JSON.parse(localStorage.getItem('search'));
     console.log(retrieveMovie);
 }
+
+function addToFavorites (id) {
+    alert(`Added ${id} to favorites!`);
+}
+
+function getId(btn) {
+    return btn.id;
+}
+
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
 
