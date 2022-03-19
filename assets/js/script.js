@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+
 var searchBtn = document.getElementById("searchbtn");
 var searchField = document.getElementById("searchfield");
 
@@ -42,7 +47,7 @@ function submitPull (input) {
                 var cardContent = document.createElement("div");
                 var cardText = document.createElement("p");
                 var cardTitle = document.createElement("span");
-                var infoButton = document.createElement("button");
+                var infoButton = document.createElement("a");
 
                 card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
@@ -50,8 +55,8 @@ function submitPull (input) {
                 cardContent.setAttribute("class", "card-content");
                 cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 cardText.setAttribute("class", "movie-desc");
-                infoButton.setAttribute("class", "waves-effect waves-light btn blue darken-2")
-                infoButton.setAttribute("id", "info-btn")
+                infoButton.setAttribute("class", "btn modal-trigger")
+                infoButton.setAttribute("href", "#modal1");
 
                 
                 card.appendChild(imageBox);
@@ -65,6 +70,8 @@ function submitPull (input) {
                 infoButton.textContent = "More Info"
                 cardTitle.textContent = movies[i].title;
                 currentMovies.push(movies[i]);
+
+                infoButton.setAttribute("id", `${movies[i].id}`);
 
 
             }
@@ -118,5 +125,4 @@ function submitSearchQuery (event) {
 }
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
-
 
