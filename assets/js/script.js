@@ -41,6 +41,7 @@ function submitPull (input) {
 
             for (var i = 0; i < 3; i++) {
 
+                
                 var card = document.createElement("div")
                 var imageBox = document.createElement("div");
                 var image = document.createElement("img");
@@ -55,8 +56,8 @@ function submitPull (input) {
                 cardContent.setAttribute("class", "card-content");
                 cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 cardText.setAttribute("class", "movie-desc");
-                infoButton.setAttribute("class", "btn modal-trigger")
-                infoButton.setAttribute("href", "#modal1");
+                infoButton.setAttribute("class", "btn blue modal-trigger modal-btn")
+                infoButton.setAttribute("href", `#modal${i}`);
 
                 
                 card.appendChild(imageBox);
