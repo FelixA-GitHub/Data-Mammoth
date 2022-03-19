@@ -15,6 +15,7 @@ var resultsEl = document.getElementById("search-result")
 var displayMovie;
 var searchTerms = [];
 var searchHistory = [];
+var currentMovies = [];
 
 var movieId = "";
 
@@ -27,7 +28,6 @@ function submitPull (input) {
         .then(response => response.json())
         .then(function (data) {
             var movies = data.results;
-            console.log(movies);
 
             var imageLink = "https://image.tmdb.org/t/p/w154";
 
@@ -42,6 +42,7 @@ function submitPull (input) {
                 var cardContent = document.createElement("div");
                 var cardText = document.createElement("p");
                 var cardTitle = document.createElement("span");
+                var infoButton = document.createElement("button");
 
                 card.setAttribute("class", "card poster-image large");
                 imageBox.setAttribute("class", "card-image waves-effect waves-block waves-light");
@@ -49,6 +50,8 @@ function submitPull (input) {
                 cardContent.setAttribute("class", "card-content");
                 cardTitle.setAttribute("class", "card-title grey-text text-darken-4");
                 cardText.setAttribute("class", "movie-desc");
+                infoButton.setAttribute("class", "waves-effect waves-light btn blue darken-2")
+                infoButton.setAttribute("id", "info-btn")
 
                 
                 card.appendChild(imageBox);
@@ -56,10 +59,13 @@ function submitPull (input) {
                 card.appendChild(cardContent);
                 cardContent.appendChild(cardTitle);
                 cardContent.appendChild(cardText);
+                cardContent.appendChild(infoButton);
                 resultsEl.appendChild(card);
                 
+                infoButton.textContent = "More Info"
                 cardTitle.textContent = movies[i].title;
-                cardText.textContent = movies[i].release_date;
+                currentMovies.push(movies[i]);
+
 
             }
         });
