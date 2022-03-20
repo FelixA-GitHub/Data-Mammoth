@@ -109,7 +109,7 @@ function submitPull (input) {
 
                 
             }
-            addData(searchTerms); 
+            addData(searchTerms);//allows addData function object to use searchTerms data
         })
         
     fetch(url2)
@@ -126,18 +126,13 @@ function submitPull (input) {
 
 function addData(object) {
     // the push method add a new item to an array
-    // here it will be adding the object from the function getRandomUser each time it is called
+    // here it will be adding the object from the function submitPull each time it is called
     searchTerms.push(object);
     //the fetched data is available only on this scope
     console.log("This is the value of data inside the function addData:")
     console.log(searchTerms)
   }
-  
-  //Calls the function that fetches the data
-  submitPull()
-  
-    console.log("This is the value of data outside the scope")
-    console.log(searchTerms)
+ 
 
 // function to pull movie trailer from API (not quite right. needs to use 
 // movie id from input in order to pull trailer)
