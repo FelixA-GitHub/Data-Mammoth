@@ -164,10 +164,16 @@ function addToFavorites (id) {
         console.log(favsArray);
         localStorage.setItem("favorites", JSON.stringify(favsArray));
     } else {
-        favsArray.push(id);
-        localStorage.setItem("favorites", JSON.stringify(favsArray));
+        if (favsArray.includes(id)) {
+            M.toast({html: 'This movie is already in your favorites.'})
+        } else {
+            favsArray.push(id);
+            localStorage.setItem("favorites", JSON.stringify(favsArray));
+            M.toast({html: 'Added to favorites!'})
+        }
+        
     }
-    M.toast({html: 'Added to favorites!'})
+    
 }
 
 // function to return ID of button clicked
