@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css"></style>
+    <title>Data Mammoth</title>
+</head>
+
+
+<body>
+  <nav class="nav-wrapper blue darken-3">
+      <div>
+          <a href="./index.html" class="brand-logo left">Data Mammoth</a>
+          <ul id="nav-mobile" class="right">
+              <li><a href="./index.html">Search</a></li>
+              <li><a href="./favorites.html">Favorites</a></li>
+          </ul>
+      </div>
+  </nav>
+
+
+      <div class="container" id="search-bar">
+          <div class="row" id="search-style">
+              <form class="col s8">
+                <div>
+                  <div class="input-field">
+                      <input placeholder="Search movies by title..." id="search-field" autocomplete="off" type="text">
+                  </div>
+                </div>
+              </form>
+              <button class="col s4 waves-effect waves-light btn blue darken-2" id="search-btn">Search</button>
+            </div>
+            <!-- search history       -->
+            <form id="history"></form>
+      </div>
+
+      <div id="modal0" class="modal">
+        <div class="modal-content" id="modal0content">
+          <h4 id="modal0title"></h4>
+          <p id="modal0text"></p>          
+        </div>
+        <div class="modal-footer" id="modal0button">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content" id="modal1content">
+          <h4 id="modal1title"></h4>
+          <p id="modal1text"></p>          
+        </div>
+        <div class="modal-footer" id="modal1button">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+
+      <div id="modal2" class="modal">
+        <div class="modal-content" id="modal2content">
+          <h4 id="modal2title"></h4>
+          <p id="modal2text"></p>          
+        </div>
+        <div class="modal-footer" id="modal2button">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+
+      <!-- Container for search results -->
+      <div class="container row" id="search-result"></div>
+      
+      <iframe id="movie-trailer" width="560" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p id="movie-rating"></p>
+
+  <div class="divider"></div>
+
+  <footer class="page-footer blue darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Data Mammoth</h5>
+            <p class="grey-text text-lighten-4">A simple search engine for movies, with a favorites list.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          Powered by
+          <a class="grey-text text-lighten-4 right" href="https://github.com/FelixA-GitHub/Data-Mammoth">GitHub</a>
+          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg"/>
+        </div>
+      </div>
+    </footer>
+
+
+  <script src="./assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
