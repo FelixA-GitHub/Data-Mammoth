@@ -98,7 +98,7 @@ function submitPull (input) {
                 cardAction.appendChild(favButton);
                 resultsEl.appendChild(card);
                 
-                infoButton.textContent = "More Info"
+                infoButton.textContent = "More"
                 favButton.textContent = "Favorite"
                 cardTitle.textContent = movies[i].title;
 
