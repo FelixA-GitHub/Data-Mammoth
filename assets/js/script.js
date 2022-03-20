@@ -27,19 +27,22 @@ var resultsEl = document.getElementById("search-result")
 
 //variables for saving search items
 var displayMovie;
-var searchTerms = [];
 var searchHistory = [];
 
 var movieId = "";
 
-// function to pull data from API
+
+
+let searchTerms = [];
+
+ // function to pull data from API
 function submitPull (input) {
     var url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey1 + "&language=en-US&query=" + input + "&page=1&include_adult=false";
     var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
 
-    fetch(url)
+    var searchTerms = fetch(url)
         .then(response => response.json())
-        .then(function (data) {
+        .then(data => {
             var movies = data.results;
 
             var imageLink = "https://image.tmdb.org/t/p/w154";
@@ -104,21 +107,37 @@ function submitPull (input) {
 
 
 
-
+                
             }
-        });
+            addData(searchTerms); 
+        })
         
     fetch(url2)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            var mpaaRating = data.results[0];
+        .then(response2 => response2.json())
+        .then(data2 => {
+            var mpaaRating = data2.results[0];
             console.log(mpaaRating);
 
-            movieRating.textContent = "Rated " + mpaaRating.contentRating;
-        });
+            var rating = mpaaRating.contentRating;
+            movieRating.textContent = "Rated " + rating;
+        })
+        
 }
+
+function addData(object) {
+    // the push method add a new item to an array
+    // here it will be adding the object from the function getRandomUser each time it is called
+    searchTerms.push(object);
+    //the fetched data is available only on this scope
+    console.log("This is the value of data inside the function addData:")
+    console.log(searchTerms)
+  }
+  
+  //Calls the function that fetches the data
+  submitPull()
+  
+    console.log("This is the value of data outside the scope")
+    console.log(searchTerms)
 
 // function to pull movie trailer from API (not quite right. needs to use 
 // movie id from input in order to pull trailer)
@@ -166,4 +185,5 @@ function getId(btn) {
 
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
+
 
