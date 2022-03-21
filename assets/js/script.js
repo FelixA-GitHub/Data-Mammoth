@@ -144,7 +144,7 @@ function submitSearchQuery (event) {
     if (search && search !== '""') {
         submitPull(search);
     } else {
-        alert("Please enter a title.");
+        M.toast({html: 'Please enter a movie title!'})
     }
 }
 
