@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 var movieRating = document.getElementById("movie-rating");
 var searchBtn = document.getElementById("search-btn");
 var searchField = document.getElementById("search-field");
+var carouselEl = document.getElementById("carousel");
+
 var modal0Content = document.getElementById("modal0content");
 var modal0Title = document.getElementById("modal0title");
 var modal0Text = document.getElementById("modal0text");
@@ -21,7 +23,7 @@ var movieTrailer = document.getElementById("movie-trailer");
 
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
-var apiKey2 = "k_b81pzrt6";
+// var apiKey2 = "k_b81pzrt6";
 
 var resultsEl = document.getElementById("search-result")
 
@@ -101,10 +103,6 @@ function submitPull (input) {
                 infoButton.textContent = "More"
                 favButton.textContent = "Favorite"
                 cardTitle.textContent = movies[i].title;
-
-
-
-
             }
         });
         
@@ -143,7 +141,7 @@ function submitSearchQuery (event) {
     
     var search = JSON.stringify(searchField.value.trim());
 
-    if (search) {
+    if (search && search !== '""') {
         submitPull(search);
     } else {
         alert("Please enter a title.");
@@ -172,6 +170,14 @@ function getId(btn) {
     return btn.id;
 }
 
+
+
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
+searchField.addEventListener('keypress', function (event) {
+    if (event.code == 'Enter') {
+        event.preventDefault();
+        submitSearchQuery(event);   
+    }
+});
 
