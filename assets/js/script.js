@@ -35,7 +35,7 @@ var movieId = "";
 // function to pull data from API
 function submitPull (input) {
     var url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey1 + "&language=en-US&query=" + input + "&page=1&include_adult=false";
-    var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
+    // var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
 
     fetch(url)
         .then(response => response.json())
@@ -108,16 +108,16 @@ function submitPull (input) {
             }
         });
         
-    fetch(url2)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            var mpaaRating = data.results[0];
-            console.log(mpaaRating);
+    // fetch(url2)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         var mpaaRating = data.results[0];
+    //         console.log(mpaaRating);
 
-            movieRating.textContent = "Rated " + mpaaRating.contentRating;
-        });
+    //         movieRating.textContent = "Rated " + mpaaRating.contentRating;
+    //     });
 }
 
 // function to pull movie trailer from API (not quite right. needs to use 
@@ -145,14 +145,9 @@ function submitSearchQuery (event) {
 
     if (search) {
         submitPull(search);
-        localStorage.setItem('search', search);
     } else {
         alert("Please enter a title.");
     }
-
-    //variable to get parsed movie from localStorage
-    var retrieveMovie = JSON.parse(localStorage.getItem('search'));
-    console.log(retrieveMovie);
 }
 
 function addToFavorites (id) {
