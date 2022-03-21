@@ -158,10 +158,8 @@ function submitSearchQuery (event) {
 function addToFavorites (id) {
     var favsArray = [];
     favsArray = JSON.parse(localStorage.getItem("favorites"));
-    console.log(favsArray);
     if (favsArray == null) {
         favsArray = [id];
-        console.log(favsArray);
         localStorage.setItem("favorites", JSON.stringify(favsArray));
     } else {
         if (favsArray.includes(id)) {
@@ -170,10 +168,8 @@ function addToFavorites (id) {
             favsArray.push(id);
             localStorage.setItem("favorites", JSON.stringify(favsArray));
             M.toast({html: 'Added to favorites!'})
-        }
-        
+        } 
     }
-    
 }
 
 // function to return ID of button clicked
