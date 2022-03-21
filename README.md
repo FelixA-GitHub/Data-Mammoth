@@ -19,4 +19,7 @@
 - GitHub Pages
 
 # Screenshot
-![Data Mammoth Screenshot](https://github.com/FelixA-GitHub/weather-dashboard/blob/main/assets/img/weather-dashboard.jpg)
+![Data Mammoth Screenshot](./assets/img/DataMammothScreenshot.jpg)
+
+# URL
+- https://felixa-github.github.io/Data-Mammoth/
