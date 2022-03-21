@@ -1,14 +1,14 @@
-## Data Mammoth
+# Data Mammoth
 
-# Description
+## Description
 - A simple search engine for movies, with a favorites list
 
-# User Story
+## User Story
 - AS A movie fan
 - I WANT search for movies
 - SO THAT I can see recommendations, information, and add to a favorites list
 
-# Technologies Used
+## Technologies Used
 - CSS
 - HTML
 - JavaScript
@@ -18,8 +18,8 @@
 - Modals
 - GitHub Pages
 
-# Screenshot
+## Screenshot
 ![Data Mammoth Screenshot](./assets/img/DataMammothScreenshot.jpg)
 
-# URL
+## URL
 - https://felixa-github.github.io/Data-Mammoth/
