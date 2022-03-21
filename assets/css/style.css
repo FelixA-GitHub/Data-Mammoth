@@ -27,8 +27,10 @@ footer img {
 }
 
 .card-action {
+    display: flex;
     border: none !important;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-btn {
@@ -38,4 +40,11 @@ footer img {
 
 .card-title {
     text-align: center !important;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

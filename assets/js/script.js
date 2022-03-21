@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
 var movieRating = document.getElementById("movie-rating");
 var searchBtn = document.getElementById("search-btn");
 var searchField = document.getElementById("search-field");
+var carouselEl = document.getElementById("carousel");
+
 var modal0Content = document.getElementById("modal0content");
 var modal0Title = document.getElementById("modal0title");
 var modal0Text = document.getElementById("modal0text");
@@ -21,7 +23,7 @@ var movieTrailer = document.getElementById("movie-trailer");
 
 //variable for API Keys
 var apiKey1 = "6a29d29b99eb578408eebe9fd0b98eb6";
-var apiKey2 = "k_b81pzrt6";
+// var apiKey2 = "k_b81pzrt6";
 
 var resultsEl = document.getElementById("search-result")
 
@@ -35,7 +37,7 @@ var movieId = "";
 // function to pull data from API
 function submitPull (input) {
     var url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey1 + "&language=en-US&query=" + input + "&page=1&include_adult=false";
-    var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
+    // var url2 = "https://imdb-api.com/API/AdvancedSearch/" + apiKey2 + "?title=" + input + "&title_type=feature&certificates=?";
 
     fetch(url)
         .then(response => response.json())
@@ -101,23 +103,19 @@ function submitPull (input) {
                 infoButton.textContent = "More"
                 favButton.textContent = "Favorite"
                 cardTitle.textContent = movies[i].title;
-
-
-
-
             }
         });
         
-    fetch(url2)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            var mpaaRating = data.results[0];
-            console.log(mpaaRating);
+    // fetch(url2)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         var mpaaRating = data.results[0];
+    //         console.log(mpaaRating);
 
-            movieRating.textContent = "Rated " + mpaaRating.contentRating;
-        });
+    //         movieRating.textContent = "Rated " + mpaaRating.contentRating;
+    //     });
 }
 
 // function to pull movie trailer from API (not quite right. needs to use 
@@ -143,25 +141,18 @@ function submitSearchQuery (event) {
     
     var search = JSON.stringify(searchField.value.trim());
 
-    if (search) {
+    if (search && search !== '""') {
         submitPull(search);
-        localStorage.setItem('search', search);
     } else {
-        alert("Please enter a title.");
+        M.toast({html: 'Please enter a movie title!'})
     }
-
-    //variable to get parsed movie from localStorage
-    var retrieveMovie = JSON.parse(localStorage.getItem('search'));
-    console.log(retrieveMovie);
 }
 
 function addToFavorites (id) {
     var favsArray = [];
     favsArray = JSON.parse(localStorage.getItem("favorites"));
-    console.log(favsArray);
     if (favsArray == null) {
         favsArray = [id];
-        console.log(favsArray);
         localStorage.setItem("favorites", JSON.stringify(favsArray));
     } else {
         if (favsArray.includes(id)) {
@@ -170,10 +161,8 @@ function addToFavorites (id) {
             favsArray.push(id);
             localStorage.setItem("favorites", JSON.stringify(favsArray));
             M.toast({html: 'Added to favorites!'})
-        }
-        
+        } 
     }
-    
 }
 
 // function to return ID of button clicked
@@ -181,6 +170,14 @@ function getId(btn) {
     return btn.id;
 }
 
+
+
 // event listeners
 searchBtn.addEventListener('click', submitSearchQuery);
+searchField.addEventListener('keypress', function (event) {
+    if (event.code == 'Enter') {
+        event.preventDefault();
+        submitSearchQuery(event);   
+    }
+});
 
